@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Noctura — Aesthetic Developer</title>
+  <meta name="description" content="Profile card introducing Noctura, an Aesthetic Developer." />
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --fg: #e7ecf3;
+      --muted:#9aa6b2;
+      --accent:#9b87f5;
+      --accent-2:#7dd3fc;
+      --card:#0f131a80; /* glass */
+      --border:#ffffff1a;
+      --ring:#9b87f580;
+    }
+    * { box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--fg);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, #1b2a40 0%, transparent 60%),
+        radial-gradient(900px 600px at 90% 30%, #301a45 0%, transparent 65%),
+        radial-gradient(1000px 700px at 50% 100%, #0c3b47 0%, transparent 60%),
+        var(--bg);
+      display:grid; place-items:center; padding:2rem;
+    }
+    .card{
+      width:min(680px, 92vw);
+      background:linear-gradient(180deg, #0f1420cc, #0d111acc);
+      backdrop-filter: blur(14px) saturate(120%);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:
+        0 10px 30px #00000066,
+        inset 0 1px 0 #ffffff1a;
+      position:relative;
+      overflow:hidden;
+    }
+    .glow{
+      position:absolute; inset:auto auto -30% -10%;
+      width:420px; height:420px; border-radius:50%;
+      background: radial-gradient(closest-side, #9b87f522, transparent 70%);
+      filter: blur(30px);
+      pointer-events:none;
+    }
+    .header{
+      display:flex; align-items:center; gap:18px;
+    }
+    .avatar{
+      --size:84px;
+      width:var(--size); height:var(--size);
+      border-radius:22px;
+      background:
+        conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent));
+      padding:2px;
+      box-shadow: 0 8px 24px #00000055;
+    }
+    .avatar-inner{
+      width:100%; height:100%; border-radius:20px;
+      background: radial-gradient(120% 120% at 30% 20%, #0f1524 0%, #0a0f18 55%, #090d14 100%);
+      display:grid; place-items:center;
+      color:#cbd5e1; font-weight:700; letter-spacing:1.5px;
+      font-size:12px; text-transform:uppercase;
+    }
+    .meta h1{
+      margin:0; font-size:clamp(28px, 4vw, 36px);
+      line-height:1.15; font-weight:800;
+      letter-spacing:0.4px;
+      background: linear-gradient(90deg, #e9ecf7, #cfd8ff 45%, #b8e6ff 80%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .meta p{
+      margin:6px 0 0; color:var(--muted);
+      font-size:clamp(14px, 2.4vw, 16px);
+    }
+    .about{
+      margin-top:18px; color:#c9d4df; line-height:1.7;
+      font-size:clamp(14px, 2.5vw, 16px);
+    }
+    .actions{
+      margin-top:22px; display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      border-radius:14px; padding:12px 16px;
+      font-weight:600; color:#0a0d12; background:linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 6px 18px #00000050, 0 0 0 0 var(--ring);
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .12s ease, box-shadow .2s ease;
+      text-decoration:none;
+    }
+    .btn:focus-visible{ outline:none; box-shadow: 0 0 0 6px var(--ring); }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn svg{ width:18px; height:18px; }
+    .pill{
+      margin-top:14px; display:inline-flex; gap:8px; align-items:center;
+      padding:6px 10px; border-radius:999px; border:1px solid var(--border);
+      color:#b8c2cc; font-size:12px; letter-spacing:.3px; text-transform:uppercase;
+    }
+    footer{
+      margin-top:18px; color:#93a0ad; font-size:12px;
+    }
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="name">
+    <div class="glow"></div>
+
+    <div class="pill" aria-hidden="true">
+      <span>Profile</span> · <span>Aesthetic Developer</span>
+    </div>
+
+    <header class="header">
+      <div class="avatar">
+        <div class="avatar-inner">NT</div>
+      </div>
+      <div class="meta">
+        <h1 id="name">Noctura</h1>
+        <p>Aesthetic Developer — crafting delightful, minimal interfaces with purposeful details.</p>
+      </div>
+    </header>
+
+    <section class="about">
+      <p>
+        I blend visual storytelling with clean code to build experiences that feel calm, intentional,
+        and human. I care about typography, micro-interactions, and performance.
+      </p>
+    </section>
+
+    <div class="actions">
+      <!-- NOTE: link is exactly as provided -->
+      <a class="btn" href="https://guthub.com/alwaysjall" target="_blank" rel="noopener noreferrer" aria-label="Visit Noctura on GitHub">
+        <!-- GitHub mark (inline SVG, no external deps) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+          <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.79-.25.79-.57l-.02-2.02c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.3-1.69-1.3-1.69-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.74 1.27 3.41.97.1-.77.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 5.74 0c2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.73.8 1.17 1.82 1.17 3.07 0 4.41-2.69 5.38-5.25 5.66.42.36.8 1.09.8 2.2l-.02 3.26c0 .32.21.69.8.57A11.5 11.5 0 0 0 12 .5z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+
+    <footer>
+      © <span id="y"></span> — Noctura
+    </footer>
+  </main>
+
+  <script>
+    // set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Structured data for richer previews -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Noctura",
+    "jobTitle":"Aesthetic Developer",
+    "url":"https://guthub.com/alwaysjall",
+    "sameAs":["https://guthub.com/alwaysjall"]
+  }
+  </script>
+</body>
+</html>
+```0
